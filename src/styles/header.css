@@ -1,0 +1,25 @@
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+.header {
+	height: 91px;
+	width: 100vw;
+	background-color: black;
+}
+
+.logo {
+	width: 178px;
+	height: 60.93px;
+}
+
+.navbar {
+	margin: 0 8rem 0 2rem;
+	height: 91px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	font-size: 24px;
+}
