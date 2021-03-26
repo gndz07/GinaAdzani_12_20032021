@@ -1,0 +1,17 @@
+#main {
+	margin-left: 150px;
+}
+
+.user-name {
+	font-size: 48px;
+	font-weight: 500;
+}
+
+.user-header-name {
+	color: red;
+}
+
+.user-tagline {
+	font-size: 18px;
+	font-weight: 400;
+}
