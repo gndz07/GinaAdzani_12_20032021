@@ -1,12 +1,5 @@
-#statistics-parent {
-	display: flex;
-	width: 100%;
-	margin-top: 3em;
-	justify-content: space-between;
-}
-
 #chart-parent {
-	width: 835px;
+	width: 90%;
 	height: 320px;
 	background-color: #FBFBFB;
 	padding: 10px;
