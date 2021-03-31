@@ -1,0 +1,15 @@
+#average-stat {
+	background-color: red;
+	width: 30%;
+	height: 263px;
+	position: relative;
+}
+
+.average-stat-label {
+	width: 60%;
+	font-size: 18px;
+	font-weight: 300;
+	color: white;
+	position: absolute;
+	left: 1em;
+}
