@@ -12,3 +12,10 @@
 #graphics {
 	width: 75%;
 }
+
+#three-graphs-container {
+	width: 95%;
+	display: flex;
+	margin: 2em 0;
+	justify-content: space-between;
+}
