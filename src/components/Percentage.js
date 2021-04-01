@@ -16,8 +16,8 @@ export default class Percentage extends React.Component {
 			</p>
 				<ResponsiveContainer width={'100%'} height={263}>
 
-					<RadialBarChart width={200} height={200} cx={120} cy={130} innerRadius={90}
-					outerRadius={120} barSize={14} data={data} startAngle={90} endAngle={450} >
+					<RadialBarChart cx="50%" cy="50%" innerRadius="80%"
+					outerRadius="90%" barSize={16} data={data} startAngle={90} endAngle={450} >
 	      				<PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
 	      				<RadialBar minAngle={15} background clockWise dataKey="percentage" cornerRadius={50} />
 
