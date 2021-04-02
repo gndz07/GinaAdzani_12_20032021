@@ -3,6 +3,7 @@
 	width: 30%;
 	height: 263px;
 	position: relative;
+	border-radius: 5px;
 }
 
 .average-stat-label {
@@ -14,12 +15,11 @@
 	left: 1em;
 }
 
-@media all and (max-width: 1024px) {
-	#average-stat {
-		height: 220px;
-	}
+.custom-tooltip-average {
+	background-color: white;
+}
 
-	.average-stat-label {
-		font-size: 14px;
-	}
+.custom-tooltip-average-text {
+	font-size: 12px;
+	padding: .5em;
 }

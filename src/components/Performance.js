@@ -33,8 +33,8 @@ export default class Performance extends React.Component {
 		return (
 			<div id="performance">
 				<ResponsiveContainer width="100%" height="100%">
-			        <RadarChart cx="50%" cy="50%" outerRadius="70%" data={newData}
-			        margin={{top: 5, right: 5, left: 5, bottom: 5}}>
+			        <RadarChart cx="50%" cy="50%" outerRadius="60%" data={newData}
+			        margin={{top: 5, right: 20, left: 0, bottom: 5}}>
 			          <PolarGrid />
 			          <PolarAngleAxis dataKey="type" tick={{fill: 'white', fontSize: '12px'}} />
 			          <PolarRadiusAxis tick={false} />

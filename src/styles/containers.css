@@ -6,7 +6,7 @@
 #statistics-parent {
 	display: flex;
 	width: 100%;
-	margin-top: 3em;
+	margin: 3em 0;
 }
 
 #graphics {
@@ -16,6 +16,6 @@
 #three-graphs-container {
 	width: 95%;
 	display: flex;
-	margin: 2em 0;
+	margin-top: 2em;
 	justify-content: space-between;
 }

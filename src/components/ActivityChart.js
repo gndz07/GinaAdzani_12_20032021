@@ -26,7 +26,7 @@ export default class ActivityChart extends React.Component {
 			<h2 className="chart-title">Activité quotidienne</h2>
 			<ResponsiveContainer width={'100%'} height={320}>
 				<BarChart width={835} height={320} data={newData}
-	      		margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+	      		margin={{top: 5, right: 30, left: 20, bottom: 40}}>
 	      			<CartesianGrid vertical={false} />
 	      			<XAxis dataKey="number" />
 	      			<YAxis orientation="right" tickCount={3}/>
