@@ -25,6 +25,8 @@ export default class Performance extends React.Component {
 				case 6:
 					return ({type: "Intensité", ...datum});
 					break;
+				default:
+					return({...datum});
 			}
 		})
 

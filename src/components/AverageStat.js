@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
 const customTick = ({x, y, payload}) => {
@@ -26,6 +26,8 @@ const customTick = ({x, y, payload}) => {
     case 7:
       tick= 'D';
       break;
+    default:
+      tick='';
   }
   return (
     <p className="average-custom-tick">{tick}</p>
@@ -34,7 +36,6 @@ const customTick = ({x, y, payload}) => {
 
 export default class AverageStat extends React.Component {
 	render() {
-    const dotStyle = { stroke: '#FFFFFF' };
 		return (
       <div id="average-stat">
       <h2 className="average-stat-label">Durée moyenne des sessions</h2>

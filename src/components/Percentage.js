@@ -30,5 +30,5 @@ export default class Percentage extends React.Component {
 }
 
 Percentage.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.object
 };
