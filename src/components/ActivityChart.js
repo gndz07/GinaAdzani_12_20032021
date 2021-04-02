@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
 
 
 const CustomToolTip = ({ active, payload, label}) => {
@@ -39,3 +40,7 @@ export default class ActivityChart extends React.Component {
 		)
 	}
 }
+
+ActivityChart.propTypes = {
+	data: PropTypes.array
+};

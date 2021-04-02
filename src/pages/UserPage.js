@@ -5,7 +5,6 @@ import AverageStat from '../components/AverageStat.js'
 import PersonalStat from '../components/PersonalStat.js'
 import Performance from '../components/Performance.js'
 import Percentage from '../components/Percentage.js'
-import {userData, userActivity, userAverage, userPerformance} from '../mocks/user-data.js'
 import caloriesIcon from '../assets/calories-icon.png'
 import proteinIcon from '../assets/protein-icon.png'
 import carbsIcon from '../assets/carbs-icon.png'
@@ -61,7 +60,6 @@ export default class UserPage extends React.Component {
   	}
 
 	render() {
-		console.log(this.state);
 		const {error, isLoaded} = this.state;
 		if (error) {
 			return <div>Error loading page</div>;

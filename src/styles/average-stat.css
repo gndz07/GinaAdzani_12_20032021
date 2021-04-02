@@ -13,3 +13,13 @@
 	position: absolute;
 	left: 1em;
 }
+
+@media all and (max-width: 1024px) {
+	#average-stat {
+		height: 220px;
+	}
+
+	.average-stat-label {
+		font-size: 14px;
+	}
+}

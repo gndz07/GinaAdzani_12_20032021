@@ -1,5 +1,6 @@
 import React from 'react';
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
 
 export default class Percentage extends React.Component {
 	render() {
@@ -27,3 +28,7 @@ export default class Percentage extends React.Component {
 		)
 	}
 }
+
+Percentage.propTypes = {
+  data: PropTypes.array
+};

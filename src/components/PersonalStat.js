@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class PersonalStat extends React.Component {
 	render() {
@@ -13,3 +14,9 @@ export default class PersonalStat extends React.Component {
 		)
 	}
 }
+
+PersonalStat.propTypes = {
+  icon: PropTypes.node,
+  data: PropTypes.number,
+  unit: PropTypes.string
+};
