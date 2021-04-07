@@ -14,14 +14,14 @@ const CustomToolTip = ({ active, payload, label}) => {
 	return null;
 };
 
-{/** @constructor ActivityChart */}
+/** @constructor ActivityChart */
 
 export default class ActivityChart extends React.Component {
 
 	render() {
-		{/** @this ActivityChart component */}
+		/** @this ActivityChart component */
 		const data = this.props.data;
-		{/** restructure the data object, add a number key with value of index+1. Will serve as X Axis labels */}
+		/** restructure the data object, add a number key with value of index+1. Will serve as X Axis labels */
 		const newData = data.map(datum => ({number: data.indexOf(datum)+1 ,...datum}));
 
 		return (

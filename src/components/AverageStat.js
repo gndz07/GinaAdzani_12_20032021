@@ -21,9 +21,9 @@ const CustomToolTip = ({ active, payload, label}) => {
 
 export default class AverageStat extends React.Component {
 	render() {
-    {/** @this AverageStat component */}
+    /** @this AverageStat component */
     const data = this.props.data;
-    {/** Add days name that will be used as the X Axis labels */}
+    /** Add days name that will be used as the X Axis labels */
     const newData = data.map(datum => {
       switch (datum.day) {
         case 1:
