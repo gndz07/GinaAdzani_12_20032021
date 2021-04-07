@@ -26,6 +26,8 @@ Clone this [external NodeJS server](https://github.com/gndz07/P9-front-end-dashb
 
 ## Install this project on your local
 
+- Fork this repo
+
 - Clone this repository to your local on a directory of your choice.
 
 - From the terminal, change directory to the cloned project directory.
