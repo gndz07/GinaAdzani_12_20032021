@@ -34,10 +34,10 @@ Clone this [external NodeJS server](https://github.com/gndz07/P9-front-end-dashb
 
 - Run the project with command `npm start`
 
-The project will run in `http://localhost:3000`
+The project will run in `http://localhost:3001` (reserve port 3000 for micro API)
 
 ## Existing path
 
 - For the time being, only two users available, with URL for each:
-	- `http://localhost:3000/user/12`
-	- `http://localhost:3000/user/18`
+	- `http://localhost:3001/user/12`
+	- `http://localhost:3001/user/18`
