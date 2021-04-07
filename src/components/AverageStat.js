@@ -2,6 +2,10 @@ import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
+/** @function CustomToolTip 
+@param active - whether or not the tooltip is active
+@param payload - the values in the object
+@param label */
 const CustomToolTip = ({ active, payload, label}) => {
   if (active && payload && payload.length) {
     return (
@@ -13,11 +17,13 @@ const CustomToolTip = ({ active, payload, label}) => {
   return null;
 }
 
+/** @constructor AverageStat */
 
 export default class AverageStat extends React.Component {
 	render() {
-
+    {/** @this AverageStat component */}
     const data = this.props.data;
+    {/** Add days name that will be used as the X Axis labels */}
     const newData = data.map(datum => {
       switch (datum.day) {
         case 1:

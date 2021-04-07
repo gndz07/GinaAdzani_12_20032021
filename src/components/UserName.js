@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/** @constructor UserName */
 export default class UserName extends React.Component {
 	render() {
 		return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/** @constructor PersonalStat */
 export default class PersonalStat extends React.Component {
 	render() {
 		return (

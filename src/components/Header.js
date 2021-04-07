@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../assets/sportsee-logo.JPG'
 
+/** @constructor Header */
 export default class Header extends React.Component {
 	render() {
 		return (

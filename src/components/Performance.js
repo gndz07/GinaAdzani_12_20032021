@@ -2,9 +2,12 @@ import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
+/** @constructor Performance */
 export default class Performance extends React.Component {
 	render () {
+		/** @this Performance component */
 		const data = this.props.data;
+		/** Convert numerical kind of activity into descriptive type that will be used as the labels */
 		const newData = data.map(datum => {
 			switch (datum.kind) {
 				case 1:

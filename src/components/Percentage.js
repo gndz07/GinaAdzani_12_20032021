@@ -2,9 +2,11 @@ import React from 'react';
 import { RadialBarChart, RadialBar, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
+/** @constructor Percentage */
 export default class Percentage extends React.Component {
 	render() {
 		const data = [{
+			/** @this Percentage component */
 			percentage: this.props.data.todayScore*100,
 			fill: '#FF0000',
 		}]

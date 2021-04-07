@@ -4,7 +4,7 @@ import menu2 from '../assets/menu-2.JPG';
 import menu3 from '../assets/menu-3.JPG';
 import menu4 from '../assets/menu-4.JPG';
 
-
+/** @constructor SideNav */
 export default class SideNav extends React.Component {
 	render() {
 		return (
