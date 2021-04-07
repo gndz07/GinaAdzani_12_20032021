@@ -58,7 +58,8 @@ export default class AverageStat extends React.Component {
 			   <ResponsiveContainer width={'100%'} height={263}>
         		<LineChart data={newData}
         		margin={{top: 80, right: 15, left: 15, bottom: 20}} >
-          			<Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" strokeWidth={2} dot={false} />
+          			<Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" strokeWidth={2} dot={false} 
+                  activeDot={{ stroke: "rgba(255, 255, 255, 0)", strokeWidth: 10}} />
                 <XAxis dataKey="dayName" axisLine={false} tickLine={false} tick={{ fill: "white", dy: 20}} />
           			<Tooltip content={<CustomToolTip />} position={{ y: 60 }} />
         		</LineChart>
