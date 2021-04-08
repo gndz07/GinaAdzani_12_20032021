@@ -52,15 +52,29 @@ export default class AverageStat extends React.Component {
       }
     })
 
+    const index0 = {
+      day: 0,
+      dayName: "",
+      sessionLength: 0
+    };
+
+    const indexLast = {
+      day: 8,
+      dayName: "",
+      sessionLength: 100
+    }
+    newData.unshift(index0);
+    newData.push(indexLast);
+
 		return (
       <div id="average-stat">
       <h2 className="average-stat-label">Durée moyenne des sessions</h2>
 			   <ResponsiveContainer width={'100%'} height={263}>
         		<LineChart data={newData}
-        		margin={{top: 80, right: 15, left: 15, bottom: 20}} >
+        		margin={{top: 80, right: -20, left: -20, bottom: 20}} >
           			<Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" strokeWidth={2} dot={false} 
-                  activeDot={{ stroke: "rgba(255, 255, 255, 0)", strokeWidth: 10}} />
-                <XAxis dataKey="dayName" axisLine={false} tickLine={false} tick={{ fill: "white", dy: 20}} />
+                  activeDot={{ stroke: "#FF0000", r: 5}} />
+                <XAxis dataKey="dayName" axisLine={false} tickLine={false} tick={{ fill: "white", fontSize: "12", dy: 20}} />
           			<Tooltip content={<CustomToolTip />} position={{ y: 60 }} />
         		</LineChart>
       		</ResponsiveContainer>
