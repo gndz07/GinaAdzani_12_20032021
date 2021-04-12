@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/** @constructor PersonalStat */
+/** 
+* PersonalStat component, contains personal statistics for certain points.
+* props are icon (image), the statistic (number), and unit (string).
+* The statistic is fetched from `http://localhost:3000/user/${userId}`. */
 export default class PersonalStat extends React.Component {
 	render() {
 		return (

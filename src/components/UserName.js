@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/** @constructor UserName */
+/** 
+* UserName component, to show name of the user. 
+* props is an object fetched from `http://localhost:3000/user/${userId}`.
+*/
 export default class UserName extends React.Component {
 	render() {
 		return (

@@ -18,14 +18,13 @@ import '../styles/percentage.css'
 import '../styles/personal-stat.css'
 
 /**
-* @constructor UserPage
+* UserPage component.
+* Displaying user's dashboard.
+* Initial state condition is empty, fill with data fetched from the backend.
 */
 export default class UserPage extends React.Component {
 	constructor(props) {
     	super(props);
-    	/** 
-    	* initial condition, empty data arrays 
-    	*/
    		this.state = {
    			error: null,
    			isLoaded: false,
@@ -37,16 +36,13 @@ export default class UserPage extends React.Component {
   	}
 
   	/**
-  	* Wait until all components mounted to call the API 
+  	* Wait until all components mounted to call the API.
+  	* Look for user ID match, between the URL param and ID on the database.
+  	* Fetch data with the matching ID.
+  	* @async
   	*/
   	componentDidMount() {
-  		/** 
-  		* @this current page URL 
-  		*/
   		const userId = this.props.match.params.userId;
-  		/** 
-  		* @async
-  		*/
   		Promise.all([
   			/** 
   			* API endpoint for user's basic data */

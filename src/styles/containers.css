@@ -15,7 +15,20 @@
 
 #three-graphs-container {
 	width: 95%;
+	height: 263px;
 	display: flex;
 	margin-top: 2em;
 	justify-content: space-between;
+}
+
+@media all and (min-width: 1025px) and (max-width: 1300px) {
+	#three-graphs-container {
+		height: 243px;
+	}
+}
+
+@media all and (max-width: 1024px) {
+	#three-graphs-container {
+		height: 183px;
+	}
 }

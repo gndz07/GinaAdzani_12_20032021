@@ -2,7 +2,9 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import logo from '../assets/sportsee-logo.JPG'
 
-/** @constructor Header */
+/**
+* Header component, contains a logo that will redirect to Homepage, and 4 other menus that are empty for the time being.
+*/
 export default class Header extends React.Component {
 	render() {
 		return (

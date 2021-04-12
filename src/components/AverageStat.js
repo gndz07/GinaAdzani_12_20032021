@@ -3,9 +3,10 @@ import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
 /** @function CustomToolTip 
-@param active - whether or not the tooltip is active
-@param payload - the values in the object
-@param label */
+* Function to create custom styled ToolTip for Rechart element.
+* @param active - whether or not the tooltip is active
+* @param payload - the values in the object
+*/
 const CustomToolTip = ({ active, payload, label}) => {
   if (active && payload && payload.length) {
     return (
@@ -17,13 +18,20 @@ const CustomToolTip = ({ active, payload, label}) => {
   return null;
 }
 
-/** @constructor AverageStat */
+
+/**
+ * AverageStat component, showing a graphic of daily average activity.
+ * Graphic made with Recharts LineChart.
+ * Dayname must be added to each object, later will be used as label on the X axis.
+ * Add two empty objects as the first and last index to make the chart line's overflowing the frame.
+ * props of this component is an array of 'activity sessions' fetched from endpoint `http://localhost:3000/user/${userId}/average-sessions`.
+*/
+
 
 export default class AverageStat extends React.Component {
 	render() {
-    /** @this AverageStat component */
     const data = this.props.data;
-    /** Add days name that will be used as the X Axis labels */
+
     const newData = data.map(datum => {
       switch (datum.day) {
         case 1:
@@ -69,9 +77,9 @@ export default class AverageStat extends React.Component {
 		return (
       <div id="average-stat">
       <h2 className="average-stat-label">Durée moyenne des sessions</h2>
-			   <ResponsiveContainer width={'100%'} height={263}>
+			   <ResponsiveContainer width="100%" height="100%">
         		<LineChart data={newData}
-        		margin={{top: 80, right: -20, left: -20, bottom: 20}} >
+        		margin={{top: 80, right: -15, left: -15, bottom: 20}} >
           			<Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF" strokeWidth={2} dot={false} 
                   activeDot={{ stroke: "#FF0000", r: 5}} />
                 <XAxis dataKey="dayName" axisLine={false} tickLine={false} tick={{ fill: "white", fontSize: "12", dy: 20}} />

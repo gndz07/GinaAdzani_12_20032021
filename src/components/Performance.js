@@ -2,10 +2,15 @@ import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
 
-/** @constructor Performance */
+/** 
+* Performance component, contains information about user's performance score in 6 categories.
+* props of this element is array of objects fetched from `http://localhost:3000/user/${userId}/performance`.
+* Kind of performance from the database has to changed into the corresponding type of performance score.
+* Graphic made using Rechart's RadarChart.
+*/
+
 export default class Performance extends React.Component {
 	render () {
-		/** @this Performance component */
 		const data = this.props.data;
 		/** Convert numerical kind of activity into descriptive type that will be used as the labels */
 		const newData = data.map(datum => {

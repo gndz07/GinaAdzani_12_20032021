@@ -1,7 +1,7 @@
 #average-stat {
 	background-color: red;
 	width: 30%;
-	height: 263px;
+	height: 100%;
 	position: relative;
 	border-radius: 5px;
 }
@@ -22,4 +22,10 @@
 .custom-tooltip-average-text {
 	font-size: 12px;
 	padding: .5em;
+}
+
+@media all and (max-width: 1024px) {
+	.average-stat-label {
+		font-size: 0.8em;
+	}
 }

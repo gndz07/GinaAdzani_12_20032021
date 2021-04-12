@@ -4,7 +4,7 @@ import menu2 from '../assets/menu-2.JPG';
 import menu3 from '../assets/menu-3.JPG';
 import menu4 from '../assets/menu-4.JPG';
 
-/** @constructor SideNav */
+/** SideNav component, side navigation to navigate to different menu. For the time being, links are empty. */
 export default class SideNav extends React.Component {
 	render() {
 		return (

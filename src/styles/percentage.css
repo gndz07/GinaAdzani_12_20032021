@@ -1,20 +1,54 @@
 #today-percentage {
 	width: 30%;
+	height: 100%;
 	background-color: #FBFBFB;
 	position: relative;
+	z-index: -1;
+}
+
+.inner-circle {
+	position: absolute;
+	background-color: white;
+	top: 55%;
+	left: 53%;
+	transform: translate(-55%, -50%);
+	width: 65%;
+	height: 65%;
+	z-index: 0;
+	border-radius: 50%;
+}
+
+.percentage-title-text {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	font-weight: 500;
+	font-size: 15px;
+
 }
 
 .percentage-text {
 	position: absolute;
-	top: 40%;
+	top: 43%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 	font-size: 26px;
 	font-weight: 700;
+	z-index: 1;
 }
 
 .percentage-text-desc {
 	font-size: 16px;
 	font-weight: 500;
+}
+
+@media all and (max-width: 1024px) {
+	.percentage-text {
+		font-size: 22px;
+	}
+
+	.percentage-text-desc {
+		font-size: 14px;
+	}
 }
