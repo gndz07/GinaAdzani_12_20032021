@@ -10,16 +10,12 @@ import './styles/side-nav.css'
 ReactDOM.render(
   <React.StrictMode>
   	<Router>
-
 	    <Header />
-
 	    <Switch>
 	    	<Route exact path='/' />
 	    	<Route path='/user/:userId' component={UserPage} />
 	    </Switch>
-
 	    <SideNav />
-
 	</Router>
   </React.StrictMode>,
   document.getElementById('root')

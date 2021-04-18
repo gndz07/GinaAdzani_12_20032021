@@ -4,3 +4,9 @@
 	background-color: #282D30;
 	border-radius: 5px;
 }
+
+@media all and (max-width: 1024px) {
+	#performance {
+		width: 33%;
+	}
+}
