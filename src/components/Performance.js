@@ -45,8 +45,7 @@ export default class Performance extends React.Component {
 			        margin={{top: 5, right: 20, left: 0, bottom: 5}}>
 			          <PolarGrid />
 			          <PolarAngleAxis dataKey="type" tick={{fill: 'white', fontSize: '10px'}} tickLine={false} />
-			          <PolarRadiusAxis axisLine={false} tick={false} />
-			          <Radar dataKey="value" stroke="#8884d8" fill="#FF0000" fillOpacity={0.6} />
+			          <Radar dataKey="value" fill="#FF0000" fillOpacity={0.8} />
 			        </RadarChart>
 		      	</ResponsiveContainer>
 			</div>
