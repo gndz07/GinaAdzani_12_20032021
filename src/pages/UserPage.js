@@ -1,21 +1,22 @@
 import React from 'react';
-import UserName from '../components/UserName.js'
-import ActivityChart from '../components/ActivityChart.js'
-import AverageStat from '../components/AverageStat.js'
-import PersonalStat from '../components/PersonalStat.js'
-import Performance from '../components/Performance.js'
-import Percentage from '../components/Percentage.js'
-import caloriesIcon from '../assets/calories-icon.png'
-import proteinIcon from '../assets/protein-icon.png'
-import carbsIcon from '../assets/carbs-icon.png'
-import fatIcon from '../assets/fat-icon.png'
-import '../styles/containers.css'
-import '../styles/user-name.css'
-import '../styles/activity-chart.css'
-import '../styles/average-stat.css'
-import '../styles/performance.css'
-import '../styles/percentage.css'
-import '../styles/personal-stat.css'
+import { fetchData } from '../services/fetch.js';
+import UserName from '../components/UserName.js';
+import ActivityChart from '../components/ActivityChart.js';
+import AverageStat from '../components/AverageStat.js';
+import PersonalStat from '../components/PersonalStat.js';
+import Performance from '../components/Performance.js';
+import Percentage from '../components/Percentage.js';
+import caloriesIcon from '../assets/calories-icon.png';
+import proteinIcon from '../assets/protein-icon.png';
+import carbsIcon from '../assets/carbs-icon.png';
+import fatIcon from '../assets/fat-icon.png';
+import '../styles/containers.css';
+import '../styles/user-name.css';
+import '../styles/activity-chart.css';
+import '../styles/average-stat.css';
+import '../styles/performance.css';
+import '../styles/percentage.css';
+import '../styles/personal-stat.css';
 
 /**
 * UserPage component.
@@ -27,10 +28,13 @@ export default class UserPage extends React.Component {
     	super(props);
    		this.state = {
    			error: null,
-   			isLoaded: false,
+   			dataLoaded: false,
    			data: [],
+   			activityLoaded: false,
    			activity: [],
+   			averageLoaded: false,
    			average: [],
+   			performanceLoaded: false,
    			performance: []
    		};
   	}
@@ -43,84 +47,83 @@ export default class UserPage extends React.Component {
   	*/
   	componentDidMount() {
   		const userId = this.props.match.params.userId;
-  		Promise.all([
-  			/** 
-  			* API endpoint for user's basic data */
-  			fetch(`http://localhost:3000/user/${userId}`),
-  			/** 
-  			* API endpoint for user's activities histories */
-  			fetch(`http://localhost:3000/user/${userId}/activity`),
-  			/** 
-  			* API endpoint for user's daily average sessions*/
-  			fetch(`http://localhost:3000/user/${userId}/average-sessions`),
-  			/** 
-  			* API endpoint for user's performance in each category */
-  			fetch(`http://localhost:3000/user/${userId}/performance`)
-  		])
-  		/** 
-  		* fetch the data and compile into json */
-  		.then(([result1, result2, result3, result4]) => Promise.all(
-  			[result1.json(), result2.json(), result3.json(), result4.json()]))
-  		/** 
-  		* use the fetched data to populate the initially empty array in the state using setState */
-  		.then(
-  			([data1, data2, data3, data4]) => {
-	  			this.setState({
-		  			isLoaded: true,
-		  			data: data1,
-		  			activity: data2,
-		  			average: data3,
-		  			performance: data4
-	  			})
-	  		},
-	  		/** 
-	  		* if the API request get an error response, set the state into error condition */
-	  		(error) => {
-	  			this.setState({
-	  				isLoaded: true,
-	  				error
-	  			})
-	  		}
-  		)
+
+  		//fetch user's data
+  		fetchData(userId, "")
+  		.then(data => {
+  			this.setState({
+  				dataLoaded: true,
+  				data: data
+  			})
+  		})
+
+  		//fetch user's activity statistics
+  		fetchData(userId, "activity")
+  		.then(data => {
+  			this.setState({
+  				activityLoaded: true,
+  				activity: data
+  			})
+  		})
+
+  		//fetch user's average statistics
+  		fetchData(userId, "average-sessions")
+  		.then(data => {
+  			this.setState({
+  				averageLoaded: true,
+  				average: data
+  			})
+  		})
+
+  		//fetch user's performance statistics
+  		fetchData(userId, "performance")
+  		.then(data => {
+  			this.setState({
+  				performanceLoaded: true,
+  				performance: data
+  			})
+  		})
   	}
 
 	render() {
 		/** 
 		* take error and isLoaded status from the current state */
-		const {error, isLoaded} = this.state;
+		const {error} = this.state;
 		/** 
 		* if error condition is true, show error page */
 		if (error) {
 			return <div>Error loading page</div>
 		}
-
-		/** 
-		* if page is still loading, show loading page */
-
-		else if (!isLoaded) {
-			return <div>Loading...</div>
-		} 
 		/** 
 		* if all API returned OK, render the full content. Add props for each corresponding components from the current state */
 		else {
 			return (
 				<div id="main">
-					<UserName user={this.state.data.data.userInfos} />
+					{ this.state.dataLoaded ? <UserName user={this.state.data.userInfos} /> : "" }
 					<div id="statistics-parent">
 						<div id="graphics">
-							<ActivityChart data={this.state.activity.data.sessions} />
+							{ this.state.activityLoaded ? <ActivityChart data={this.state.activity.sessions} /> : "" }
 							<div id="three-graphs-container">
-								<AverageStat data={this.state.average.data.sessions} />
-								<Performance data={this.state.performance.data.data} />
-								<Percentage data={this.state.data.data} />
+								{ this.state.averageLoaded ? <AverageStat data={this.state.average.sessions} /> : "" }
+								{ this.state.performanceLoaded ? <Performance data={this.state.performance.data} /> : "" }
+								{ this.state.dataLoaded ? <Percentage data={this.state.data} /> : "" }
 							</div>
 						</div>
 
 						<div id="stat-container">
-							<PersonalStat name="Calories" icon={caloriesIcon} data={this.state.data.data.keyData.calorieCount} unit="kCal"/>
-							<PersonalStat name="Proteines" icon={proteinIcon} data={this.state.data.data.keyData.proteinCount} unit="g"/>
-							<PersonalStat name="Glucides" icon={carbsIcon} data={this.state.data.data.keyData.carbohydrateCount} unit="g"/>
-							<PersonalStat name="Lipides" icon={fatIcon} data={this.state.data.data.keyData.lipidCount} unit="g"/>
+							{ this.state.dataLoaded ? 
+								<PersonalStat name="Calories" icon={caloriesIcon} data={this.state.data.keyData.calorieCount} unit="kCal"/>
+								 : "" }
+							{ this.state.dataLoaded ? 
+								<PersonalStat name="Proteines" icon={proteinIcon} data={this.state.data.keyData.proteinCount} unit="g"/>
+								 : "" }
+							{ this.state.dataLoaded ? 
+								<PersonalStat name="Glucides" icon={carbsIcon} data={this.state.data.keyData.carbohydrateCount} unit="g"/>
+								 : "" }
+							{ this.state.dataLoaded ? 
+								<PersonalStat name="Lipides" icon={fatIcon} data={this.state.data.keyData.lipidCount} unit="g"/>
+								 : "" }
+
 						</div>
 					</div>
 				</div>
